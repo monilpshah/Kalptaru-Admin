@@ -24,28 +24,37 @@ export class LoginComponent implements OnInit {
   }
   
   onadd(){
-    localStorage.setItem('email',this.user_email);
-    this._abc.getLoginByEmailAndPassword(new log(this.user_email,this.user_password)).subscribe(
-      (data:any)=>
-      {
-        console.log(data);
-        if(data.length == 1){
-          if(data[0].user_type==1)
-          {
-            alert("Login Successfully"); 
+    
+    if(this.user_email == "bunny@gmail.com" && this.user_password == "bunnydon"){
+      alert("Login Successfully"); 
+      localStorage.setItem('email',this.user_email);        
+        this._router.navigate(['/menunav',this.user_email]);
+        this._router.navigate(['/menunav/:user_email/dashboard']); 
+    }
+    else{
+      alert("unsuccesful");
+    }
+  //   this._abc.getLoginByEmailAndPassword(new log(this.user_email,this.user_password)).subscribe(
+  //     (data:any)=>
+  //     {
+  //       console.log(data);
+  //       if(data.length == 1){
+  //         if(data[0].user_type==1)
+  //         {
+  //           alert("Login Successfully"); 
             
-            this._router.navigate(['/menunav',this.user_email]);
-            this._router.navigate(['/menunav/:user_email/dashboard']);
-          } 
-          else
-          {
-            alert("Use Admin Id And Password "); 
-          }
-      }
-        else{
-          alert("unsuccesful");
-        }
-      }
-    );
-  }
+  //           this._router.navigate(['/menunav',this.user_email]);
+  //           this._router.navigate(['/menunav/:user_email/dashboard']);
+  //         } 
+  //         else
+  //         {
+  //           alert("Use Admin Id And Password "); 
+  //         }
+  //     }
+  //       else{
+  //         alert("unsuccesful");
+  //       }
+  //     }
+  //   );
+  // }
 }
