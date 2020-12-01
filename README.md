@@ -1,3 +1,5 @@
+LOGIN and Password: bunny@gmail.com/bunnydon
+
 # KalptaruFront
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.2.
